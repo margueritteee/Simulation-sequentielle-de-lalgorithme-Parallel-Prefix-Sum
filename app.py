@@ -9,7 +9,7 @@ def parallel_prefix_sum_prof(x):
     if n == 0: # ida x fargha return 3 tables vide
         return [], [], []
 
-    # Somme parallèle (nfs el algo li gblha (partiellement parallèle))
+    # Somme parallèle (nfs el algo li gblha)
     arbre_somme = [x.copy()] 
     niveau_courant = x.copy() 
     while len(niveau_courant) > 1:
@@ -57,7 +57,7 @@ def parallel_prefix_sum_prof(x):
             else:  # indices impairs 
                 somme_prefixe[i] = prefix_paires[i//2 - 1] + x[i] #Pour i = 2 (3ème élément, x[2]=3) => somme_prefixe[2] = prefix_paires[0] + x[2] = 3 + 3 = 6
 
-    # arbre le meme avec (partiellement parallèle)
+    # arbre le meme avec seq
     arbre_recon = [somme_prefixe.copy()]
     niveau_courant = somme_prefixe.copy()
     while len(niveau_courant) > 1:
